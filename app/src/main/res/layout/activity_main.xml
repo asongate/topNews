@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:scrollbarStyle="insideInset">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/topics"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/topics"
+            android:layout_margin="15dp"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:typeface="monospace"/>
+
+
+        <TextView
+            android:id="@+id/business"
+            style="@style/CustomFontStyle"
+            android:text="@string/business"
+            />
+
+        <TextView
+            android:id="@+id/entertainment"
+            style="@style/CustomFontStyle"
+            android:text="@string/entertainment"
+            />
+
+
+        <TextView
+            android:id="@+id/gaming"
+            style="@style/CustomFontStyle"
+            android:text="@string/gaming"/>
+
+
+
+        <TextView
+            android:id="@+id/general"
+            style="@style/CustomFontStyle"
+            android:text="@string/general"/>
+
+
+        <TextView
+            android:id="@+id/music"
+            style="@style/CustomFontStyle"
+            android:text="@string/music"/>
+
+
+        <TextView
+            android:id="@+id/science"
+            style="@style/CustomFontStyle"
+            android:text="@string/science"/>
+
+
+        <TextView
+            android:id="@+id/sport"
+            style="@style/CustomFontStyle"
+            android:text="@string/sport"/>
+
+        <TextView
+            android:id="@+id/technology"
+            style="@style/CustomFontStyle"
+            android:text="@string/technology"/>
+
+    </LinearLayout>
+</ScrollView>
