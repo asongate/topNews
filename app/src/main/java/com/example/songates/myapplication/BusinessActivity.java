@@ -59,7 +59,7 @@ public class BusinessActivity extends AppCompatActivity {
 
                         try {
                             JSONArray sources = jsonObject.getJSONArray("sources");
-                            
+
                             for (int i=0; i<sources.length(); i++) {
                                 adapter.add(new Source(sources.getJSONObject(i)));
                             }

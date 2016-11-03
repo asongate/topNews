@@ -2,11 +2,15 @@ package com.example.songates.myapplication;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -32,10 +36,13 @@ public class SourceAdapter extends ArrayAdapter<Source> {
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
-        TextView url = (TextView) convertView.findViewById(R.id.url);
+        ImageView url = (ImageView) convertView.findViewById(R.id.url);
+
+
 
         name.setText(source.name);
-        name.setText(source.url);
+        Log.i("url", source.url);
+        Picasso.with(getContext()).load(source.url).into(url);
 
         return convertView;
     }

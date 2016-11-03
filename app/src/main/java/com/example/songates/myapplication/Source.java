@@ -17,7 +17,8 @@ public class Source {
     public Source(JSONObject object) {
         try {
             this.name = object.getString("name");
-            this.url = object.getString("id");
+            JSONObject urlsObject = object.getJSONObject("urlsToLogos");
+            this.url = urlsObject.getString("small");
         } catch (JSONException e) {
             e.printStackTrace();
         }
