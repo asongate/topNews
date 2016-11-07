@@ -10,4 +10,5 @@
     <string name="sport">Sport</string>
     <string name="technology">Technology</string>
     <string name="title_activity_business">BusinessActivity</string>
+    <string name="title_activity_topics">TopicsActivity</string>
 </resources>

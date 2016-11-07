@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView business = (TextView) findViewById(R.id.business);
 
-        Intent i = new Intent(getApplicationContext(),BusinessActivity.class);
-        i.putExtra("category","business");
+        Intent i = new Intent(getApplicationContext(),TopicsActivity.class);
+        i.putExtra("category",business.getText().toString());
         startActivity(i);
 
     }

@@ -21,6 +21,10 @@
             android:name=".BusinessActivity"
             android:label="@string/title_activity_business"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TopicsActivity"
+            android:label="@string/title_activity_topics"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
