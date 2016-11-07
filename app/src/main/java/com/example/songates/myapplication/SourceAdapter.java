@@ -31,14 +31,12 @@ public class SourceAdapter extends ArrayAdapter<Source> {
 
         if ( convertView == null) {
 
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.business,parent,false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.topics,parent,false);
 
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
         ImageView url = (ImageView) convertView.findViewById(R.id.url);
-
-
 
         name.setText(source.name);
         Log.i("url", source.url);

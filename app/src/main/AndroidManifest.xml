@@ -11,11 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".BusinessActivity"
@@ -23,8 +19,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".TopicsActivity"
-            android:label="@string/title_activity_topics"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/title_activity_topics" />
+        <activity android:name=".CategoryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

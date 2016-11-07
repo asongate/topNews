@@ -9,13 +9,14 @@
         android:layout_weight="1"
         style="@style/categoryStyle"
         android:gravity="center"
-        android:layout_height="wrap_content"/>
+        android:layout_height="40dp"/>
 
     <ImageView
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:id="@+id/url"
+        style="@style/categoryStyle"
         android:contentDescription="" />
 
 </LinearLayout>
