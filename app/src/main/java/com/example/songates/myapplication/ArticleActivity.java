@@ -26,47 +26,43 @@ import cz.msebera.android.httpclient.message.BasicHeader;
  * Created by songates on 11/7/16.
  */
 
-public class TopicsActivity extends AppCompatActivity {
-
+public class ArticleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_topics);
+        setContentView(R.layout.activity_articles);
 
-        Intent intent = getIntent();
-        String topic = intent.getStringExtra("category");
-        populateSources(topic);
-
+        Intent article = getIntent();
+        String source = article.getStringExtra("source");
+        populateArticles(source);
     }
 
-    private  void populateSources(String topic) {
+    private  void populateArticles(String source) {
 
         List<Header> headers = new ArrayList<Header>();
         headers.add(new BasicHeader("Accept","application/json"));
         RequestParams params = new RequestParams();
         params.add("language","en");
-        if (topic.equalsIgnoreCase("science")) {
-            topic="science-and-nature";
-            params.add("category",topic);
-        } else {
-            params.add("category", topic);
-        }
-        String url ="https://newsapi.org/v1/sources";
+        params.add("source", source);
+        params.add("sortBy","");
+        params.add("apiKey","69d6752c22d24cd9bb2e4538b43e12c1");
+
+        String url ="https://newsapi.org/v1/articles";
         NewsOrgClient.get(getApplicationContext(),url,headers.toArray(new Header[headers.size()]),
                 params, new JsonHttpResponseHandler() {
 
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject jsonObject) {
 
-                        final ArrayList<Source> topicList = new ArrayList<Source>();
-                        SourceAdapter adapter = new SourceAdapter(TopicsActivity.this,topicList);
+                        final ArrayList<Article> articleArrayList = new ArrayList<Article>();
+                        ArticleAdapter articleAdapter = new ArticleAdapter(ArticleActivity.this,articleArrayList);
 
                         try {
-                            JSONArray sources = jsonObject.getJSONArray("sources");
+                            JSONArray articles = jsonObject.getJSONArray("articles");
 
-                            for (int i=0; i<sources.length(); i++) {
-                                adapter.add(new Source(sources.getJSONObject(i)));
+                            for (int i=0; i<articles.length(); i++) {
+                                articleAdapter.add(new Article(articles.getJSONObject(i)));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -74,15 +70,15 @@ public class TopicsActivity extends AppCompatActivity {
 
 
 
-                        ListView listView = (ListView) findViewById(R.id.topicsList);
-                        listView.setAdapter(adapter);
+                        ListView listView = (ListView) findViewById(R.id.articles);
+                        listView.setAdapter(articleAdapter);
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                                Source source = topicList.get(position);
-                                Intent article = new Intent(getApplicationContext(),ArticleActivity.class);
-                                article.putExtra("source",source.id);
-                                startActivity(article);
+                            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                                Article article = articleArrayList.get(pos);
+                                Intent detail = new Intent(getApplicationContext(),ArticleDetailActivity.class);
+                                detail.putExtra("url",article.url);
+                                startActivity(detail);
                             }
                         });
 

@@ -13,12 +13,14 @@ public class Source {
 
     public String name;
     public String url;
+    public String id;
 
     public Source(JSONObject object) {
         try {
             this.name = object.getString("name");
             JSONObject urlsObject = object.getJSONObject("urlsToLogos");
             this.url = urlsObject.getString("small");
+            this.id = object.getString("id");
         } catch (JSONException e) {
             e.printStackTrace();
         }

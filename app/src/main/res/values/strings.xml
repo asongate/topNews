@@ -11,4 +11,5 @@
     <string name="technology">Technology</string>
     <string name="title_activity_business">BusinessActivity</string>
     <string name="title_activity_topics">TopicsActivity</string>
+    <string name="title_activity_article">ArticlesActivity</string>
 </resources>

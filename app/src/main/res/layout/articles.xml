@@ -4,18 +4,19 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_weight="3"
-        style="@style/categoryStyle"
-        android:layout_height="40dp"/>
+        style="@style/articleStyle"
+        android:layout_height="60dp"/>
+
 
     <ImageView
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="40dp"
-        android:id="@+id/url"
-        style="@style/categoryStyle"
+        android:layout_height="60dp"
+        android:id="@+id/imgUrl"
+        style="@style/articleStyle"
         android:contentDescription="" />
 
 </LinearLayout>

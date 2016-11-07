@@ -20,6 +20,11 @@
         <activity
             android:name=".TopicsActivity"
             android:label="@string/title_activity_topics" />
+        <activity
+            android:name=".ArticleActivity"
+            android:label="@string/title_activity_article" />
+        <activity
+            android:name=".ArticleDetailActivity" />
         <activity android:name=".CategoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
