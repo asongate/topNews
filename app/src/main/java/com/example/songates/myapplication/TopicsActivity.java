@@ -41,6 +41,8 @@ public class TopicsActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.home);
+
 
         Intent intent = getIntent();
         String topic = intent.getStringExtra("category");
