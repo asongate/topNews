@@ -23,7 +23,10 @@ public class CategoryActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("");
+        actionBar.setDisplayShowHomeEnabled(false); // show or hide the default home button
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true); // enable overriding the default toolbar layout
+        actionBar.setDisplayShowTitleEnabled(false);
         ListView categories = (ListView) findViewById(R.id.categoryList);
 
         final ArrayList<String> list = new ArrayList<String>();
@@ -36,6 +39,7 @@ public class CategoryActivity extends AppCompatActivity {
         list.add("Science");
         list.add("Sport");
         list.add("Technology");
+        list.add("");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.categories, R.id.category,list);
 

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context="com.example.songates.myapplication.CategoryActivity">
 
 
@@ -13,26 +14,19 @@
         android:id="@+id/category_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/top_news"
-            android:id="@+id/imageView"
-            android:contentDescription="@string/icon" />
+        android:paddingLeft="12dp"
+        android:theme="@style/MyTheme">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/topics"
-            android:layout_gravity="center"
             android:id="@+id/toolbar_title"
             android:fontFamily="sans-serif"
             android:textStyle="bold"
-            android:textSize="25sp"/>
+            android:textSize="25sp"
+            android:textColor="@android:color/black"/>
 
 
      </android.support.v7.widget.Toolbar>
