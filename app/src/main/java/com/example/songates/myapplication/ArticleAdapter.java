@@ -39,7 +39,9 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         title.setText(article.title);
 
+
         Picasso.with(getContext()).load(article.imgUrl).into(imgUrl);
+
 
         return convertView;
     }

@@ -23,10 +23,10 @@
         <activity
             android:name=".ArticleActivity"
             android:label="@string/title_activity_article"
-            android:parentActivityName=".CategoryActivity"/>
+            android:parentActivityName=".TopicsActivity"/>
         <activity
             android:name=".ArticleDetailActivity"
-            android:parentActivityName=".CategoryActivity"/>
+            android:parentActivityName=".ArticleActivity"/>
 
         <activity android:name=".CategoryActivity">
             <intent-filter>

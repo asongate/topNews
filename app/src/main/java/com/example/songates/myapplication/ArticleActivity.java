@@ -23,6 +23,8 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.message.BasicHeader;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
 
 /**
  * Created by songates on 11/7/16.
@@ -30,6 +32,8 @@ import cz.msebera.android.httpclient.message.BasicHeader;
 
 public class ArticleActivity extends AppCompatActivity {
 
+    private String source;
+    private String category;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +44,31 @@ public class ArticleActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.home);
 
         Intent article = getIntent();
-        String source = article.getStringExtra("source");
-        populateArticles(source);
+        source = article.getStringExtra("source");
+        category = article.getStringExtra("category");
+        populateArticles(source,category);
     }
 
-    private  void populateArticles(String source) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Intent backToTopics = new Intent(getApplicationContext(),TopicsActivity.class);
+                backToTopics.putExtra("category",category);
+                Log.i("CATE:::",category);
+                NavUtils.navigateUpTo(this,backToTopics);
+                return true;
+        }
 
+        return super.onOptionsItemSelected(item);
+    }
+
+    private  void populateArticles(String source, String category) {
+        final String selectedSource = source;
+        final String selectedCategory = category;
         List<Header> headers = new ArrayList<Header>();
         headers.add(new BasicHeader("Accept","application/json"));
         RequestParams params = new RequestParams();
@@ -58,6 +78,7 @@ public class ArticleActivity extends AppCompatActivity {
         params.add("apiKey","69d6752c22d24cd9bb2e4538b43e12c1");
 
         String url ="https://newsapi.org/v1/articles";
+        Log.i("INHERE::", source);
         NewsOrgClient.get(getApplicationContext(),url,headers.toArray(new Header[headers.size()]),
                 params, new JsonHttpResponseHandler() {
 
@@ -87,6 +108,8 @@ public class ArticleActivity extends AppCompatActivity {
                                 Article article = articleArrayList.get(pos);
                                 Intent detail = new Intent(getApplicationContext(),ArticleDetailActivity.class);
                                 detail.putExtra("url",article.url);
+                                detail.putExtra("source",selectedSource);
+                                detail.putExtra("category",selectedCategory);
                                 startActivity(detail);
                             }
                         });

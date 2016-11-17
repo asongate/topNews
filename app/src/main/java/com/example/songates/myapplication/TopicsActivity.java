@@ -2,10 +2,12 @@ package com.example.songates.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -41,8 +43,6 @@ public class TopicsActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.home);
-
 
         Intent intent = getIntent();
         String topic = intent.getStringExtra("category");
@@ -50,8 +50,21 @@ public class TopicsActivity extends AppCompatActivity {
 
     }
 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Intent backToCategory = new Intent(getApplicationContext(),CategoryActivity.class);
+                NavUtils.navigateUpTo(this,backToCategory);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     private  void populateSources(String topic) {
 
+        final String selectedCategory = topic;
         List<Header> headers = new ArrayList<Header>();
         headers.add(new BasicHeader("Accept","application/json"));
         RequestParams params = new RequestParams();
@@ -92,6 +105,7 @@ public class TopicsActivity extends AppCompatActivity {
                                 Source source = topicList.get(position);
                                 Intent article = new Intent(getApplicationContext(),ArticleActivity.class);
                                 article.putExtra("source",source.id);
+                                article.putExtra("category",selectedCategory);
                                 startActivity(article);
                             }
                         });
