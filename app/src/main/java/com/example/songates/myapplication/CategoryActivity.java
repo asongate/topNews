@@ -23,10 +23,11 @@ public class CategoryActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.category_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(false); // show or hide the default home button
-        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setTitle("Top News");
         actionBar.setDisplayShowCustomEnabled(true); // enable overriding the default toolbar layout
-        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setIcon(R.drawable.top_news_32);
         ListView categories = (ListView) findViewById(R.id.categoryList);
 
         final ArrayList<String> list = new ArrayList<String>();

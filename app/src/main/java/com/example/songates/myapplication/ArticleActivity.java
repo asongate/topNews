@@ -48,6 +48,7 @@ public class ArticleActivity extends AppCompatActivity {
         Intent article = getIntent();
         source = article.getStringExtra("source");
         category = article.getStringExtra("category");
+        actionBar.setTitle(source.toUpperCase());
         populateArticles(source,category);
     }
 
@@ -58,7 +59,6 @@ public class ArticleActivity extends AppCompatActivity {
             case android.R.id.home:
                 Intent backToTopics = new Intent(getApplicationContext(),TopicsActivity.class);
                 backToTopics.putExtra("category",category);
-                Log.i("CATE:::",category);
                 NavUtils.navigateUpTo(this,backToTopics);
                 return true;
         }

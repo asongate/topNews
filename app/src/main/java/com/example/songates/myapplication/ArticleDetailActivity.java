@@ -43,6 +43,8 @@ public class ArticleDetailActivity extends AppCompatActivity {
         url = article.getStringExtra("url");
         source = article.getStringExtra("source");
         category = article.getStringExtra("category");
+
+        actionBar.setTitle(source.toUpperCase());
         webView = (WebView) findViewById(R.id.detail);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         webView.getSettings().setJavaScriptEnabled(true);

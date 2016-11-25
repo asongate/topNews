@@ -48,6 +48,9 @@ public class TopicsActivity extends AppCompatActivity {
         String topic = intent.getStringExtra("category");
         populateSources(topic);
 
+        actionBar.setTitle(topic.toUpperCase());
+
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
