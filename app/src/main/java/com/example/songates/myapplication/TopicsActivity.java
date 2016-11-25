@@ -48,7 +48,7 @@ public class TopicsActivity extends AppCompatActivity {
         String topic = intent.getStringExtra("category");
         populateSources(topic);
 
-        actionBar.setTitle(topic.toUpperCase());
+        actionBar.setTitle(topic.toUpperCase().replace("-"," "));
 
 
     }

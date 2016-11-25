@@ -35,7 +35,6 @@ public class BusinessActivity extends AppCompatActivity {
         setContentView(R.layout.activity_business);
 
         Intent i = getIntent();
-        Log.i("logger ", i.getStringExtra("category"));
         populateBusinessSources();
 
     }

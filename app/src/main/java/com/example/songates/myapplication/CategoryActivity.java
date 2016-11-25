@@ -50,8 +50,6 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                Log.i("logged::", list.get(position));
-
                 Intent i = new Intent(getApplicationContext(),TopicsActivity.class);
                 i.putExtra("category", list.get(position));
                 startActivity(i);

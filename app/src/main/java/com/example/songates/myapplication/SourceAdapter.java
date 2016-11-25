@@ -39,7 +39,8 @@ public class SourceAdapter extends ArrayAdapter<Source> {
         ImageView url = (ImageView) convertView.findViewById(R.id.url);
 
         name.setText(source.name);
-        Picasso.with(getContext()).load(source.url).into(url);
+        Picasso.with(getContext())
+                .load(source.url).into(url);
 
         return convertView;
     }

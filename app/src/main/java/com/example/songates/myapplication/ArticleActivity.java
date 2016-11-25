@@ -48,7 +48,7 @@ public class ArticleActivity extends AppCompatActivity {
         Intent article = getIntent();
         source = article.getStringExtra("source");
         category = article.getStringExtra("category");
-        actionBar.setTitle(source.toUpperCase());
+        actionBar.setTitle(source.toUpperCase().replace("-"," "));
         populateArticles(source,category);
     }
 
@@ -78,7 +78,6 @@ public class ArticleActivity extends AppCompatActivity {
         params.add("apiKey","69d6752c22d24cd9bb2e4538b43e12c1");
 
         String url ="https://newsapi.org/v1/articles";
-        Log.i("INHERE::", source);
         NewsOrgClient.get(getApplicationContext(),url,headers.toArray(new Header[headers.size()]),
                 params, new JsonHttpResponseHandler() {
 
